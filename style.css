@@ -1,0 +1,187 @@
+﻿/* This is the css file for my project. This contains the layout for my pages */
+
+/* Basic reset for better cross-browser compatibility */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    /* This has all the grid containers used for the layout */
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto 1fr auto;
+    grid-template-areas: 
+        "header"
+        "nav"
+        "main"
+        "footer";
+    min-height: 100vh;
+}
+
+body:hover { /* This is the hover colour for the menu */
+    color: rgb(248, 145, 10);
+}
+
+header {    /* Header colour for the grid layout "header" */
+    grid-area: header;
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+    padding: 10px 20px;
+    text-align: center;
+    position: relative;
+}
+
+.hamburger { /* This is the hamburger icon used for my pages */ 
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+}
+
+nav {      /* Navigation area of the grid */
+    grid-area: nav;
+    background-color: #333;
+    color: rgb(255, 251, 251);
+    padding: 1rem;
+    text-align: center;
+}
+
+nav ul { 
+    list-style-type: none;
+    margin: 4px;
+    padding: 0;
+    font-weight: bold;
+    justify-content: space-around;
+    text-align: center;
+    display: flex;
+}
+
+nav ul ul {   /* Colours for the background of the navigation */
+    position: center;
+    display: none;
+    background-color: rgb(255, 123, 0);
+    width: 100%;
+    padding: 0;
+    opacity: 0;
+    transition: opacity 0.5s ease-in;
+}
+
+nav > ul > li:hover ul { /* Block of the menu */
+    display: block;
+}
+
+nav > ul > li:hover ul {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 10px;
+}
+
+nav ul ul li:hover {  /* this affects the colour of the hover menu */ 
+    background-color: rgb(243, 5, 5);
+}
+
+nav ul li a { 
+    color: #131111;
+    text-decoration: none;
+}
+
+main { /* padding for the main grid */ 
+    grid-area: main;
+    padding: 20px;
+}
+
+footer { /* footer colours  */ 
+    grid-area: footer;
+    background-color: #000000;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px 20px;
+}
+
+main p {
+    margin-bottom: 20px;
+}
+
+form input[type="submit"] {   
+    background-color: #f50a16;
+    color: #03a3ff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+form input[type="submit"]:hover { /* this is the colour used for the submit button on my contact page  */ 
+    background-color: #f703ce;
+}
+
+.showNav { /* mobile adaptation shownav (hamburger) */ 
+    height: 0.8em;
+    width: 1.25em;
+    display: block;
+    border-top: 0.2em solid white;
+    border-bottom: 0.2em solid white;
+}
+
+/* Mobile adaptation */
+@media (max-width: 768px) {
+    body {
+        grid-template-rows: auto 1fr auto;
+        grid-template-areas: 
+            "header"
+            "main"
+            "footer";
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    nav {
+        grid-area: header;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        background-color: #333;
+        display: none;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    nav ul ul {
+        position: static;
+        display: none;
+    }
+
+    nav ul ul li:hover {
+        background-color: rgb(243, 5, 5);
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .hamburger.active + nav {
+        display: flex;
+    }
+}

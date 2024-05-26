@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<!-- sets the document type to  html -->
+<html lang="en">
+	<!--default language -->
+	<head>
+		<!-- head tag -->
+		<meta charset="UTF-8">
+			<!-- variable lenght encoder  -->
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+				<!-- size settings -->
+				<title>My Portfolio</title>
+				<!--title with title name -->
+				<link rel="stylesheet" type="text/css" href="style.css">
+				</head>
+				<body>
+					<!--body of the  page-->
+					<header>
+						<h1>Welcome to My Portfolio</h1>
+						<!--header 1 -->
+						<div class="hamburger">&#9776;</div>
+					</header>
+					<nav>
+						<ul>
+							<li>Menu
+                
+								<ul>
+									<li>
+										<a href="project.html">Projects</a>
+									</li>
+									<!-- these are all the different menu options linked to each file -->
+									<li>
+										<a href="index.html">Home</a>
+									</li>
+									<li>
+										<a href="contact.html">Contact</a>
+									</li>
+									<li>
+										<a href="videoDemo.html">Video Demo</a>
+									</li>
+									<li>
+										<a href="sitereport.html">Site Report</a>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</nav>
+					<main>
+						<p>Hi, I'm Alexandru Bitache. This is my portfolio showcasing my work.</p>
+						<!-- paragraph-->
+					</main>
+					<footer>
+						<p>My Portfolio</p>
+					</footer>
+					<script>
+        document.addEventListener('DOMContentLoaded', function() { 
+            const hamburger = document.querySelector('.hamburger');
+            const nav = document.querySelector('nav');
+
+            hamburger.addEventListener('click', function() {
+                nav.classList.toggle('active');
+            });
+        });
+    </script>
+				</body>
+			</html>
